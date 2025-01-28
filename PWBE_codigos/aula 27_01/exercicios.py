@@ -242,7 +242,7 @@
 #         if self.historico:
 #             print(f"Consultas realizadas por {self.nome}:")
 #             for consulta in self.historico:
-#                 print(f"- {consulta}")
+#                 print(f" {consulta}")
 #         else:
 #             print(f"Não existem consultas para {self.nome}.")
 
@@ -299,16 +299,16 @@
 #Implemente uma classe chamada “Banco” que represente uma instituição financeira. Essa classe deve conter métodos para cadastrar clientes, abrir contas bancárias e 
 # realizar operações como saques, depósitos e transferências.
 
-class Banco:
-    def __init__(self, nome, cpf, senha):
-        self.nome = nome
-        self.cpf = cpf
-        self.senha = senha
-        self.clientes = []
+# class Banco:
+#     def __init__(self, nome, cpf, senha):
+#         self.nome = nome
+#         self.cpf = cpf
+#         self.senha = senha
+#         self.clientes = []
 
 
-    def Cadastrar(self, nome, cpf, senha):
-        self.nome = nome
+#     def Cadastrar(self, nome, cpf, senha):
+#         self.nome = nome
         
 
 
