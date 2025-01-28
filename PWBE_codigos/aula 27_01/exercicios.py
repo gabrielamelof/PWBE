@@ -177,6 +177,7 @@
 #         else:
 #             print("Triângulo inválido")
 
+
 #     def Calcula_Area(self):
 #         self.area = (self.base * self.altura) / 2
 #         print(f"A área do triângulo é {self.area}")
@@ -194,28 +195,105 @@
 #velocidade atual
 
 
-class Carro:
-    def __init__(self, marca, modelo, velocidade_atual):
-        self.marca = marca
-        self.modelo = modelo
-        self.velocidade_atual = velocidade_atual
+# class Carro:
+#     def __init__(self, marca, modelo, velocidade_atual):
+#         self.marca = marca
+#         self.modelo = modelo
+#         self.velocidade_atual = velocidade_atual
 
-    def Acelerar(self, km_acelerar):
-        self.km_acelerar = km_acelerar
-        self.velocidade_atual += self.km_acelerar
-        print(f"A velocidade do carro {self.modelo} da marca {self.marca} foi aumentada em {self.km_acelerar}")
+#     def Acelerar(self, km_acelerar):
+#         self.km_acelerar = km_acelerar
+#         self.velocidade_atual += self.km_acelerar
+#         print(f"A velocidade do carro {self.modelo} da marca {self.marca} foi aumentada em {self.km_acelerar}")
     
-    def Frear(self, km_frear):
-        self.km_frear = km_frear
-        self.velocidade_atual -= self.km_frear
-        print(f"A velocidade do carro {self.modelo} da marca {self.marca} foi diminuida em {self.km_frear}")
+#     def Frear(self, km_frear):
+#         self.km_frear = km_frear
+#         self.velocidade_atual -= self.km_frear
+#         print(f"A velocidade do carro {self.modelo} da marca {self.marca} foi diminuida em {self.km_frear}")
     
-    def Velocidade_atual(self):
-        print(f"A velocidade atual do carro é de {self.velocidade_atual}")
+#     def Velocidade_atual(self):
+#         print(f"A velocidade atual do carro é de {self.velocidade_atual}")
 
 
-carro = Carro("vw", "gol", 70)
-carro.Acelerar(30)
-carro.Frear(10)
-carro.Velocidade_atual()
+# carro = Carro("vw", "gol", 70)
+# carro.Acelerar(30)
+# carro.Frear(10)
+# carro.Velocidade_atual()
          
+
+#######################################################################################################################
+
+#EXERCÍCIO 9
+
+# Crie uma classe chamada “Paciente” que possua atributos para armazenar o nome, a idade e o histórico de consultas de um paciente. Implemente métodos para adicionar 
+# uma nova consulta ao histórico e exibir as consultas realizadas.
+
+
+# class Paciente:
+#     def __init__ (self, nome, idade):
+#         self.nome = nome 
+#         self.idade = idade 
+#         self.historico = []
+
+#     def Adicionar_Consulta(self, consulta):
+#         self.historico.append(consulta)
+
+#     def Exibir_Consultas(self):
+#         if self.historico:
+#             print(f"Consultas realizadas por {self.nome}:")
+#             for consulta in self.historico:
+#                 print(f"- {consulta}")
+#         else:
+#             print(f"Não existem consultas para {self.nome}.")
+
+# paciente = Paciente("Liticie", 26)
+# paciente.Adicionar_Consulta("Consulta dia 22/02/2025, ás 15:30. Especialidade: dermatologista")
+# paciente.Adicionar_Consulta("Consulta dia 22/02/2025, ás 15:30. Especialidade: dermatolosa=dskjdjaksa")
+# paciente.Exibir_Consultas()
+
+
+#####################################################################################################################
+
+#EXERCÍCIO 10
+
+# Implemente uma classe chamada “Livro” com atributos para armazenar o título, o autor e o número de páginas do livro. Adicione métodos para emprestar o livro, 
+# devolvê-lo e verificar se está disponível.
+
+class Livro:
+    def __init__(self, titulo, autor, numero_paginas):
+        self.titulo = titulo
+        self.autor = autor
+        self.numero_paginas = numero_paginas
+        self.disponivel = True
+
+    def Emprestar_Livro(self):
+        if self.disponivel == True:
+            self.disponivel = False
+            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} foi emprestado")
+        else:
+            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} não está disponível para ser emprestado")
+
+    def Devolver_Livro(self):
+        if self.disponivel == False:
+            self.disponivel = True
+            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} foi devolvido")
+    
+    def Verificar_Livro (self):
+        if self.disponivel == True:
+            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} está disponível para empréstimo")
+        else:
+            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} não está disponível para empréstimo")
+
+livro = Livro("AAAAAA", "AAAAAAA", "AAAAA")
+livro.Emprestar_Livro()
+livro.Devolver_Livro()
+livro.Verificar_Livro()
+
+#####################################################################################################################################
+
+#EXERCÍCIO 11
+
+#Implemente uma classe chamada “Banco” que represente uma instituição financeira. Essa classe deve conter métodos para cadastrar clientes, abrir contas bancárias e 
+# realizar operações como saques, depósitos e transferências.
+
+
