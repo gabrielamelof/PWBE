@@ -259,35 +259,38 @@
 # Implemente uma classe chamada “Livro” com atributos para armazenar o título, o autor e o número de páginas do livro. Adicione métodos para emprestar o livro, 
 # devolvê-lo e verificar se está disponível.
 
-class Livro:
-    def __init__(self, titulo, autor, numero_paginas):
-        self.titulo = titulo
-        self.autor = autor
-        self.numero_paginas = numero_paginas
-        self.disponivel = True
+# class Livro:
+#     def __init__(self, titulo, autor, numero_paginas):
+#         self.titulo = titulo
+#         self.autor = autor
+#         self.numero_paginas = numero_paginas
+#         self.disponivel = True
 
-    def Emprestar_Livro(self):
-        if self.disponivel == True:
-            self.disponivel = False
-            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} foi emprestado")
-        else:
-            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} não está disponível para ser emprestado")
 
-    def Devolver_Livro(self):
-        if self.disponivel == False:
-            self.disponivel = True
-            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} foi devolvido")
+#     def Verificar_Livro (self):
+#         if self.disponivel == True:
+#             print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} está disponível para empréstimo")
+#         else:
+#             print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} não está disponível para empréstimo")
+
+#     def Emprestar_Livro(self):
+#         if self.disponivel == True:
+#             self.disponivel = False
+#             print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} foi emprestado")
+#         else:
+#             print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} não está disponível para ser emprestado")
+
+#     def Devolver_Livro(self):
+#         if self.disponivel == False:
+#             self.disponivel = True
+#             print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} foi devolvido")
     
-    def Verificar_Livro (self):
-        if self.disponivel == True:
-            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} está disponível para empréstimo")
-        else:
-            print(f"O livro {self.titulo} do autor {self.autor} com {self.numero_paginas} não está disponível para empréstimo")
+    
 
-livro = Livro("AAAAAA", "AAAAAAA", "AAAAA")
-livro.Emprestar_Livro()
-livro.Devolver_Livro()
-livro.Verificar_Livro()
+# livro = Livro("AAAAAA", "AAAAAAA", "AAAAA")
+# livro.Emprestar_Livro()
+# livro.Devolver_Livro()
+# livro.Verificar_Livro()
 
 #####################################################################################################################################
 
@@ -295,5 +298,17 @@ livro.Verificar_Livro()
 
 #Implemente uma classe chamada “Banco” que represente uma instituição financeira. Essa classe deve conter métodos para cadastrar clientes, abrir contas bancárias e 
 # realizar operações como saques, depósitos e transferências.
+
+class Banco:
+    def __init__(self, nome, cpf, senha):
+        self.nome = nome
+        self.cpf = cpf
+        self.senha = senha
+        self.clientes = []
+
+
+    def Cadastrar(self, nome, cpf, senha):
+        self.nome = nome
+        
 
 
