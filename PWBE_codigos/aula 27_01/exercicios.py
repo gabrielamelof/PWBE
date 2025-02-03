@@ -300,15 +300,106 @@
 # realizar operações como saques, depósitos e transferências.
 
 # class Banco:
-#     def __init__(self, nome, cpf, senha):
-#         self.nome = nome
-#         self.cpf = cpf
-#         self.senha = senha
+#     def __init__(self):
+        
 #         self.clientes = []
+#         self.saldo = 0.0
 
 
-#     def Cadastrar(self, nome, cpf, senha):
-#         self.nome = nome
+#     def menu():
+#         op = int(input(''' Bem vindo ao Banco!
+#                         Escolha uma das opções abaixo:
+#                         1- Cadastrar Cliente
+#                         2- Abrir Conta
+#                         3 - Saque
+#                         4- Depósito
+#                         5- Transferência'''))
+        
+#         if op == 1:
+#             self.Cadastrar()
+#         elif op == 2:
+#             self.Abrir_Conta()
+#         elif op == 3:
+#             self.Saque()
+#         elif op == 4:
+#             self.Deposito()
+#         elif op == 5:
+#             self.Transferir()
+#         else:
+#             print("Erro!")
+        
+            
+#     def Cadastrar(self):
+#         nome = input("Digite seu nome: ")
+#         cpf = input("Digite seu CPF: ")
+#         nascimento = input("Digite a sua data de nascimento: ")
+
+#         cliente = {'nome' : nome, 'cpf' : cpf, 'data_nascimento' : nascimento, 'saldo': self.saldo}
+
+#         self.clientes.append(cliente)
+#         print("Conta cadastrada!")
+#         print("Estamos redirecionando você para o mneu do banco")
+
+#         self.menu()
+
+
+#     def Transferir(self):
+#         cpf = input("Digite seu CPF: ")
+#         if cpf in self.clientes:
+#             cpf_destino = input("Digite o CPF da conta de destino: ")
+#             if cpf_destino in self.clientes:
+#                 valor = float(input("Informe o valor que você quer transferir para a conta de destino: "))
+#                 if valor > self.saldo:
+#                     print("O valor informado é maior do que o que você tem na sua conta, tente noavamente!")
+#                 else:
+#                     print("O valor de {valor} foi tranferido com sucesso para a conta com o número de CPF {cpf_destino}")
+#                     self.saldo -= valor
+#                     for cpf_destino in self.clientes:
+#                         'saldo' += valor
+             
+#             else:
+#                 print("Erro! Não existe uma conta com esse CPF! Você será redirecionado para o menu")
+#         else: 
+#             print("Erro! Não existe uma conta com esse CPF! Você será redirecionado para o menu")
+                
+
+
+
+#     def Deposito(self, valor_deposito):
+#         cpf = input("Digite seu CPF: ")
+#         if cpf in self.clientes:
+#             self.valor_deposito = float(input("Digite o valor a ser depositado na conta: "))
+#             'saldo' = self.saldo + self.valor_deposito
+    
+#         print(f"Depósito feito!!")
+    
+#     def Saque(self, valor_saque):
+#             self.valor_saque = valor_saque
+#             if self.valor_saque> self.saldo:
+#                 print("O valor a ser sacado é maior do que o valor disponível na conta")
+#             else:
+#                 print(f"Saque feito na conta {self.numero_conta} do titular {self.nome_titular}. valor disponível na conta: {self.saldo - self.valor_saque}")
+          
+
+#     def Saque():
+
+
+
+
+
+
+
+        
+
+        
+
+
+
+
+
+################################################################################################################################################
+
+
         
 
 
