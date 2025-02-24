@@ -303,10 +303,9 @@
 #     def __init__(self):
         
 #         self.clientes = []
-#         self.saldo = 0.0
 
 
-#     def menu():
+#     def menu(self):
 #         op = int(input(''' Bem vindo ao Banco!
 #                         Escolha uma das opções abaixo:
 #                         1- Cadastrar Cliente
@@ -334,7 +333,7 @@
 #         cpf = input("Digite seu CPF: ")
 #         nascimento = input("Digite a sua data de nascimento: ")
 
-#         cliente = {'nome' : nome, 'cpf' : cpf, 'data_nascimento' : nascimento, 'saldo': self.saldo}
+#         cliente = {'nome' : nome, 'cpf' : cpf, 'data_nascimento' : nascimento, 'saldo': 0.0}
 
 #         self.clientes.append(cliente)
 #         print("Conta cadastrada!")
@@ -342,63 +341,339 @@
 
 #         self.menu()
 
+#     def Procurar_cliente(self, cpf):
+#         for cliente in self.clientes:
+#             if cliente["cpf"] == cpf:
+#                 return cliente
+#         return None
 
 #     def Transferir(self):
-#         cpf = input("Digite seu CPF: ")
-#         if cpf in self.clientes:
+#         cpf_origem = input("Digite seu CPF: ")
+#         cliente_origem = self.Procurar_cliente(cpf_origem)
+
+#         if cliente_origem:
 #             cpf_destino = input("Digite o CPF da conta de destino: ")
-#             if cpf_destino in self.clientes:
+#             cliente_destino = self.Procurar_cliente(cpf_destino)
+
+#             if cliente_destino:
 #                 valor = float(input("Informe o valor que você quer transferir para a conta de destino: "))
+
 #                 if valor > self.saldo:
 #                     print("O valor informado é maior do que o que você tem na sua conta, tente noavamente!")
+
 #                 else:
 #                     print("O valor de {valor} foi tranferido com sucesso para a conta com o número de CPF {cpf_destino}")
-#                     self.saldo -= valor
-#                     for cpf_destino in self.clientes:
-#                         'saldo' += valor
-             
+#                     cpf_origem['saldo'] -= valor
+#                     cpf_destino['saldo'] += valor
+
+                
 #             else:
 #                 print("Erro! Não existe uma conta com esse CPF! Você será redirecionado para o menu")
+#                 self.menu()
 #         else: 
 #             print("Erro! Não existe uma conta com esse CPF! Você será redirecionado para o menu")
+#             self.menu()
                 
 
 
 
-#     def Deposito(self, valor_deposito):
+#     def Deposito(self, cpf):
 #         cpf = input("Digite seu CPF: ")
-#         if cpf in self.clientes:
-#             self.valor_deposito = float(input("Digite o valor a ser depositado na conta: "))
-#             'saldo' = self.saldo + self.valor_deposito
-    
-#         print(f"Depósito feito!!")
+#         cliente = self.buscar_cliente(cpf)
+
+#         if cliente != None:
+#             valor = float(input("Digite o valor do depósito: "))
+
+#             if valor > 0:
+#                 cliente['saldo'] += valor
+#                 print(f"Depósito feito na conta {cliente['cpf']} do titular {cliente['nome']}. valor disponível na conta: {cliente['saldo']}")
+#             else:
+#                     print("O valor do depósito não pode ser negativo")
+#                     self.menu()
+#         else:
+#             print("Conta não encontrada")
+#             self.menu()
     
 #     def Saque(self, valor_saque):
-#             self.valor_saque = valor_saque
-#             if self.valor_saque> self.saldo:
+#         cpf = input("Digite seu CPF: ")
+#         cliente = self.buscar_cliente(cpf)
+
+#         if cliente != None:
+#             valor = float(input("Digite o valor do saque: "))
+            
+#             if self.valor_saque > cliente['saldo']:
 #                 print("O valor a ser sacado é maior do que o valor disponível na conta")
+#                 self.menu()
+
 #             else:
-#                 print(f"Saque feito na conta {self.numero_conta} do titular {self.nome_titular}. valor disponível na conta: {self.saldo - self.valor_saque}")
+#                 cliente['saldo'] -= valor
+#                 print(f"Saque feito na conta {cliente['cpf']} do titular {cliente['nome']}. valor disponível na conta: {cliente['saldo']}")
+#                 self.menu()
           
-
-#     def Saque():
-
-
-
-
-
-
-
-        
-
-        
+# banco = Banco()
+# banco.menu()
 
 
 
 
 
 ################################################################################################################################################
+#EXERCÍCIO 12
 
+# Crie uma classe chamada “LojaVirtual” que represente uma plataforma de vendas online. Essa classe deve ter funcionalidades para cadastrar produtos, gerar carrinho de 
+# compras, aplicar descontos e calcular o valor total da compra.
+
+
+# class LojaVirtual:
+#     def __init__(self):
+#         self.produtos = []
+
+#     def Cadastrar_Produtos(self, id_produto, nome_produto, preco):
+#         numerador += 1
+#         self.id_produto = id_produto
+#         self.nome_produto = nome_produto
+#         self.preco = preco
+#         # id_produto = input("Digite o id do produto: ")
+#         # nome_produto = input("Digite o nome do produto: ")
+
+#         produto = { 'id_produto' : id_produto, 
+#                     'nome_produto' : nome_produto,
+#                     'preco' : preco}
+
+#         self.produtos.append(produto)
+
+#     def Procurar_produto(self, nome_produto):
+#          for produto in self.produtos:
+#             if produto["nome_produto"] == nome_produto:
+#                  return nome_produto
+#          return None
+    
+#     def Gerar_Carrinho(self):
+#         produto = input("Digite o nome do produto que deseja comprar: ")
+#         produto_nome = self.Procurar_produto(produto)
+
+#         if produto_nome:
+#              cpf_destino = input("Digite o CPF da conta de destino: ")
+#              cliente_destino = self.Procurar_cliente(cpf_destino)
+        
+#         return produtos
+
+#     def Aplicar_Desconto(self, valor_desconto):
+#         self.valor_desconto = valor_desconto
+#         valor_final = self.preco - (self.valor_desconto * self.preco)
+
+#         return valor_final
+
+#     def Valor_Total(self):
+
+# TERMINARRRRRRRRR
+
+###########################################################################################################
+# EXERCÍCIO 13 - REVISAR!!!!!!!!
+
+# Implemente uma classe chamada “Agenda” que represente uma agenda telefônica. Essa classe deve permitir adicionar, editar e remover contatos, além de buscar por 
+# contatos a partir de um nome ou número de telefone.
+
+# class Agenda:
+#     def __init__(self):
+#         self.agenda = []
+
+#     def menu(self):
+#         op = int(input(''' Bem vindo a Agenda telefônica!
+#                             Escolha uma das opções abaixo:
+#                             1- Adicionar contato
+#                             2- Editar contato
+#                             3 - Listar contatos
+#                             4- Excluir contato
+#                             5- Sair'''))
+            
+#         if op == 1:
+#             self.Adicionar()
+#         elif op == 2:
+#             self.Editar()
+#         elif op == 3:
+#             self.Listar()
+#         elif op == 4:
+#             self.Excluir()
+#         elif op == 5:
+#             print("Encerrando o programa")
+#         else:
+#             print("Erro!")
+#             self.menu()
+
+
+#     def Adicionar (self):
+#         numero = input("Digite o número do contato: ")
+#         nome = input("Digite o nome do contato: ")
+
+#         contato = {'nome' : nome, 
+#                     'numero': numero}
+
+#         self.agenda.append(contato)
+#         print("Vamos te redirecionar para o menu")
+#         self.menu()
+    
+
+#     def Procurar_contato(self, nome_contato, numero_contato, opcao):
+#         opcao = int(input("Você deseja buscar essse contato pelo número ou pelo nome?\n1-Nome\n2-Número:"))
+#         if opcao == 1:
+#             for contato in self.agenda:
+#                 if contato["nome"] == nome_contato:
+#                     return nome_contato
+#         elif opcao == 2:
+#              for contato in self.agenda:
+#                 if contato["numero"] == numero_contato:
+#                     return numero_contato
+#         return None
+    
+#     def Editar(self):
+#         nome = input("Digite o nome do contato que deseja editar: ")
+#         for contato in self.agenda:
+#             if contato["nome"] == nome:
+#                 nome_atualizado = input("Digite o novo nome ou enter para manter o mesmo: ")
+#                 numero_atualizado = input("Digite o novo número ou enter para manter o mesmo: ")
+            
+#             if nome_atualizado:
+#                 contato["nome"] = nome_atualizado
+#             if numero_atualizado:
+#                 contato["numero"] = numero_atualizado
+
+#             print("Contato atualizado ") 
+#             print(contato)
+#             print("Vamos te redirecionar para o menu")
+#             self.menu()
+           
+        
+#         print("O contato não foi encontrado") 
+#         print("Vamos te redirecionar para o menu")
+#         self.menu()
+
+#     def Listar(self):
+#         if self.agenda:
+#             print(self.agenda)
+#             print("Vamos te redirecionar para o menu")
+#             self.menu()
+#         else:
+#             print("A Agenda telefônica está vazia")
+#             print("Vamos te redirecionar para o menu")
+#             self.menu()
+
+
+
+
+#     def Excluir(self):
+#         nome = input("Digite o nome do contato que você quer excluir: ")
+#         for contato in self.agenda:
+#             if contato["nome"] == nome:
+#                 self.agenda.remove(contato)
+#                 print("O contato foi removido")
+#                 print("Vamos te redirecionar para o menu")
+#                 self.menu()
+#             else:
+#                 print("Contato não encontrado")
+#                 print("Vamos te redirecionar para o menu")
+#                 self.menu()
+    
+
+# agenda = Agenda()
+# agenda.menu()
+
+###############################################################################################
+# EXERCÍCIO 14 
+
+# Crie uma classe chamada “MáquinaDeVendas” que simule uma máquina de venda de produtos. Essa classe deve permitir cadastrar produtos, selecionar um produto para 
+# compra, inserir dinheiro, retornar o troco e exibir o estoque disponível.
+
+class MaquinadeVendas():
+    def __init__(self):
+        self.produtos = []
+        self.dinheiro = 0.0
+
+    def menu(self):
+        op = int(input(''' Bem vindo a Máquina de vendas!
+                            Escolha uma das opções abaixo:
+                            1- Cadastrar produto
+                            2- Selecionar produto
+                            3 - Exibir estoque disponível
+                            4 - Inserir Dinheiro
+                             - Sair'''))
+            
+        if op == 1:
+            self.Cadastrar_Produtos()
+        elif op == 2:
+            self.Selecionar_Produtos()
+        elif op == 3:
+            self.Exibir_Estoque()
+        elif op == 4:
+            self.Inserir_Dinheiro()   
+        elif op == 5:
+            print("Encerrando o programa")
+        else:
+            print("Erro!")
+            self.menu()
+
+    def Inserir_Dinheiro(self):
+        valor = float(input("Digite o valor que quer inserir: "))
+
+       
+        self.dinheiro += valor
+        print(f"Dinheiro inserido com sucesso, seu saldo é de {self.dinheiro:.2f}")
+
+        print("Vamos te redirecionar para o menu")
+        self.menu()
+
+    def Cadastrar_Produtos(self):
+        nome_produto = input("Digite o nome do produto a ser cadastrado: ")
+        preco_produto = float(input("Digite o preco do produto a ser cadastrado: "))
+        quant_produto = int(input("Digite a quantidade do produto a ser cadastrado: "))
+
+
+        produto = {'nome' : nome_produto,
+                    'preco' : preco_produto, 
+                    'quantidade' : quant_produto}
+
+        self.produtos.append(produto)
+        print("Produto Cadastrado")
+        print("Vamos te redirecionar para o menu")
+        self.menu()
+
+    def Selecionar_Produtos(self):
+        nome_produto = input("Digite o nome do produto que deseja comprar: ")
+        for produto in self.produtos:
+            if nome_produto.lower() == produto['nome'].lower():
+                quantidade = int(input("Insira a quantidade do produto que deseja comprar: "))
+                produto['quantidade'] -= quantidade
+                valor = produto['preco'] * quantidade
+                if self.dinheiro >= valor:
+                    troco = self.dinheiro - valor
+                    print("Efetuando pagamento....")
+                    print(f"Pagamento realizado, seu troco é {troco:.2f}")
+                    if produto['quantidade'] == 0:
+                        self.produtos.remove(produto)
+                    print("Vamos te redirecionar para o menu")
+                    self.menu()
+                else: 
+                    print("Dinheiro insuficiente")
+                    print("Vamos te redirecionar para o menu")
+                    self.menu()
+
+
+        
+    
+    def Exibir_Estoque(self):
+        for produto in self.produtos:
+            print(f"Nome: {produto['nome']}\nPreço: {produto['preco']:.2f}\nQuantidade: {produto['quantidade']}")
+
+
+        
+        print("Vamos te redirecionar para o menu")
+        self.menu()
+
+
+
+
+maquinavendas = MaquinadeVendas()
+maquinavendas.menu()
 
         
 
