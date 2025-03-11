@@ -1,3 +1,4 @@
+
 # EXERCÍCIO 1
 
 # Crie uma classe chamada “Círculo” que possua um atributo para armazenar o raio e 
@@ -674,7 +675,3 @@ class MaquinadeVendas():
 
 maquinavendas = MaquinadeVendas()
 maquinavendas.menu()
-
-        
-
-

@@ -1,3 +1,4 @@
+
 # Exercício 1
 # n1 = int(input("Digite o primeiro número: "))
 
@@ -94,5 +95,3 @@ def contar_caracteres(s):
 s = input("Digite uma palavra: ")
 contagem = contar_caracteres(s)
 print(f"Contagem de caracteres na palavra: {contagem}")
-
-
