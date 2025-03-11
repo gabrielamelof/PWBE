@@ -1,3 +1,4 @@
+
 class Cachorro:
     def __init__(self, nome, raca, cor, idade):
         self.nome = nome
@@ -34,4 +35,5 @@ class Livro:
     
 livro_da_kamila = Livro("Romance", "Crepúsculo", "J.K Rowling", ["Bela", "Edward"], 14)
 livro_da_kamila.abrir(10)
+
 print(livro_da_kamila)
