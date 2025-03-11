@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Bosch</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">Bem vindo a Biblioteca Bosch</h1> 
+    </header>
+    
+    
+    <div class="filtragem">
+        <h2 class="filtragem-title">Filtragem de livros</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input placeholder="Busque por titulo, autor ou ano de publicação" name="info_livro" id="info_livro"></input>
+    
+            <button class="btn-pesquisar" type="submit">Pesquisar</button>
+    
+        </form>
+        <button class="cadastrar">
+            <a href="{% url 'criar_livros' %}">Cadastrar um novo livro</a>
+        </button>
+        <h3 class="livros-enc">Livros Encontrados</h3>
+        <ul>
+            {% for i in livro %}
+                <li>
+                    <h3 class="titulo">
+                        {{i.titulo}}
+                    </h3>
+                    <p>
+                        Autor: {{i.autor}}
+                    <p class="ano">
+                        Ano de Publicação: {{i.ano_publicacao}}
+                    </p>
+                   <button class="buttons">
+                        <a href="{% url 'atualizar_livros'  i.pk %}">Editar</a>
+                   </button>
+                   <button class="buttons">
+                    <a href="{% url 'deletar_livros'  i.pk %}">Deletar</a>
+                   </button>
+                   
+                    
+                </li>
+            {% endfor %}
+        </ul>  
+    </div>
+    
+    
+    
+    <div class="cadastrados">
+        <h2 class="livros_cad">Livros Cadastrados</h2>
+        <ul>
+            {% for i in livros %}
+                <li>
+                    <h3 class="titulo">
+                        {{i.titulo}}
+                    </h3>
+                    <p>
+                        Autor: {{i.autor}}
+                    <p class="ano">
+                        Ano de Publicação: {{i.ano_publicacao}}
+                    </p>
+                   <button class="buttons">
+                        <a href="{% url 'atualizar_livros'  i.pk %}">Editar</a>
+                   </button>
+                   <button class="buttons">
+                    <a href="{% url 'deletar_livros'  i.pk %}">Deletar</a>
+                   </button>
+                   
+                    
+                </li>
+            {% endfor %}
+        </ul>  
+    </div>
+    
+</body>
+</html>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+    header{
+        background-color: rgb(12, 22, 48);
+        width: 100%;
+        text-align: center;
+    }
+    h1{
+        color: rgb(70, 100, 182);
+    }
+    h2{
+        color: rgb(74, 96, 156);
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .livros_cad{
+        padding-top: 25px;
+        padding-bottom: 15px;
+        align-self: flex-start;
+    }
+    .title{
+        padding-top: 30px;
+        padding-bottom: 45px;
+    }
+    .filtragem {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+    }
+    .filtragem h2{
+        padding-bottom: 10px;
+  
+    }
+    .filtragem form{
+        padding-bottom: 30px;
+    }
+    h3{
+        color: rgb(74, 96, 156);
+        align-self: flex-start;
+    }
+    .btn-pesquisar{
+        background-color:rgb(74, 96, 156);
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        width: 90px;
+        height: 25px;
+    }
+    input{
+        width: 400px;
+        height: 25px;
+        border-radius: 5px;
+       
+    }
+   .buttons{
+    width: 90px;
+    height: 25px;
+    background-color:rgb(74, 96, 156);
+    border-radius: 5px;
+    border: none; 
+    
+   }
+    a{
+    color: #fff;
+    text-decoration: none;
+   }
+   .ano{
+    padding-bottom: 10px;
+   }
+    .titulo{
+        padding-top: 20px;
+    }
+    .cadastrar{
+        width: 200px;
+        height: 45px;
+        background-color:rgb(74, 96, 156);
+        border-radius: 5px;
+        border: none; 
+    }
+    ul{
+        padding-bottom: 20px;
+    }
+    .livros-enc{
+        padding-top: 30px;
+    }
+   
+
+    .cadastrados {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+   
+</style>
