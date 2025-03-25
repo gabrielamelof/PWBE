@@ -20,5 +20,5 @@ from django.urls import path, include
 
 urlpatterns = [
  path('admin/', admin.site.urls),
- path('', include('lista.urls')),
+ path('', include('lista.urls')), #inclui a view lista_tarefas
 ]
