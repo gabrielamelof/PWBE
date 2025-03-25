@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+# Model que define os campos que o usuário deve preencher
 class Carro(models.Model):
     nome = models.CharField(max_length=255)
     marca = models.CharField(max_length=255)
