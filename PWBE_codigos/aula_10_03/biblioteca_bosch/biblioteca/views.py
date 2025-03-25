@@ -3,6 +3,8 @@ from .models import Cadastro
 from .forms import Itemform
 
 # Create your views here.
+
+# View criada para listar todos os livros cadastrados
 def lista_livros(request):
     if request.method =="POST":
         livro = busca_livros(request)
@@ -12,6 +14,7 @@ def lista_livros(request):
     livros = Cadastro.objects.all()
     return render(request, 'biblioteca/lista_livros.html', {'livros' : livros, 'livro': livro})
 
+# View para criar um novo registro de livro
 def criar_livros(request):
     if request.method == 'POST':
         form = Itemform(request.POST)
@@ -22,7 +25,7 @@ def criar_livros(request):
         form = Itemform()
     return render(request, 'biblioteca/criar_livros.html', {'form' : form})
 
-
+# View usada para atualizar as informações de um livro
 def atualizar_livros(request, pk):
     livro = get_object_or_404(Cadastro, pk=pk)
     if request.method == 'POST':
@@ -34,6 +37,8 @@ def atualizar_livros(request, pk):
         form = Itemform(instance=livro)
     return render(request, 'biblioteca/criar_livros.html', {'form' : form})
 
+
+# View usada para deletar um livro com base em seu id que é passado como parâmetro
 def deletar_livros(request, pk):
     livro = get_object_or_404(Cadastro, pk=pk)
     if request.method == 'POST':
@@ -41,6 +46,7 @@ def deletar_livros(request, pk):
         return redirect('lista_livros')
     return render(request, 'biblioteca/excluir.html', {'livro' : livro})
 
+# View usada para buscar um livro com base em suas informações
 def busca_livros(request):
     informacao = request.POST.get('info_livro')
     print(informacao)

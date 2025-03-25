@@ -8,7 +8,7 @@
 <body>
     <h1>Formulário de cadastro de livros</h1>
     
-    <form method="post"">
+    <form method="post">
         {% csrf_token %}
         <!-- cria um formulário automaticamente -->
         {{form.as_p}} 

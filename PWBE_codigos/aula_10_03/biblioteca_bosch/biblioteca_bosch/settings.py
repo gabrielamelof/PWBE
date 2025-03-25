@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Adiciona o app biblioteca 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

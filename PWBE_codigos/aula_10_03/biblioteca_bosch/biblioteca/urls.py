@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# Define as urls que serão usadas para cada view
 urlpatterns = [
  path('', views.lista_livros, name='lista_livros'),
  path('biblioteca/', views.criar_livros, name='criar_livros'),
