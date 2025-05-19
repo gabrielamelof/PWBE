@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+
+# Model para cadastro de usuários no banco de dados. Com os campos de informação necessárias
 class Usuario(AbstractUser):
     TIPO_CHOICES = [
         ('G', 'Gestor'), 
@@ -19,6 +21,7 @@ class Usuario(AbstractUser):
     def __str__(self):
         return f'{self.username} ({self.get_tipo_display()})'
 
+# Model para cadastro de disciplinas no banco de dados. Com os campos de informação necessárias
 class Disciplina(models.Model):
     nome = models.CharField(max_length=100)
     curso = models.CharField(max_length=100)
@@ -29,7 +32,7 @@ class Disciplina(models.Model):
     def __str__(self):
         return self.nome
 
-
+# Model para cadastro de salas no banco de dados. Com os campos de informação necessárias
 class Sala(models.Model):
     nome = models.CharField(max_length=100)
     capacidade_alunos = models.IntegerField()
@@ -37,6 +40,7 @@ class Sala(models.Model):
     def __str__(self):
         return self.nome
 
+# Model para cadastro de reservas de ambientes no banco de dados. Com os campos de informação necessárias
 class ReservaAmbiente(models.Model):
     PERIODO_CHOICES = [
         ('M', 'Manhã'), 

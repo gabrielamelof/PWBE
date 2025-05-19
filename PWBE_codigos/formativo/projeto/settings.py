@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Definição dos apps que serão necessárias as instalações para o funcionamento da aplicação
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,8 +52,9 @@ REST_FRAMEWORK = {
     ),
 }
 
+# Configuração de tempo em que o token fica disponível
 SIMPLE_JWT = {
-    'ACCESS_TIME_LIFETIME' : timedelta(hours=4), 
+    'ACCESS_TOKEN_LIFETIME' : timedelta(hours=4), 
     'REFRESH_TOKEN_LIFETIME' : timedelta(days=1),
 }
 
@@ -89,6 +91,7 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# Configuração do banco de dados no mysql para que os dados da aplicação sejam gravados nele
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

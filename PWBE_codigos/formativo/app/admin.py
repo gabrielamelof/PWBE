@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import Usuario, Disciplina, ReservaAmbiente, Sala
 from django.contrib.auth.admin import UserAdmin
 
+
+# Determina os campos que aparecerão no django admin quando cadastrar um usuário
 class UsuarioAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         (None, {
@@ -19,6 +21,7 @@ class UsuarioAdmin(UserAdmin):
     )
 
 # Register your models here.
+# registro das models para que elas apareçam para cadastro no django admin
 admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(Disciplina)
 admin.site.register(ReservaAmbiente)
